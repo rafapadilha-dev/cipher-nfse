@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbrasfSign - Assinador de XML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Cipher NFS-e</h1>
+                <p>Assinador digital de XML no padrão ABRASF / Nacional</p>
+            </div>
+
+            <div id="errorMessage" class="alert-error"></div>
+
+            <form id="signForm">
+                <div class="config-grid">
+                    <div class="form-group">
+                        <label for="certFile">Certificado Digital (.pfx, .p12)</label>
+                        <input type="file" id="certFile" name="certFile" accept=".pfx,.p12" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha do Certificado</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="algorithm">Algoritmo</label>
+                        <select id="algorithm" name="algorithm">
+                            <option value="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" selected>SHA256 (Recomendado)</option>
+                            <option value="http://www.w3.org/2000/09/xmldsig#rsa-sha1">SHA1 (Antigo)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="xml-comparison-grid">
+                    <!-- Esquerda: XML sem assinatura -->
+                    <div class="form-group">
+                        <label for="xml">XML sem Assinatura</label>
+                        <textarea id="xml" name="xml" placeholder="Cole seu XML aqui..." required></textarea>
+                        <button type="submit" id="btnSubmit" class="btn-submit">Assinar XML</button>
+                    </div>
+
+                    <!-- Direita: XML assinado -->
+                    <div class="form-group">
+                        <label for="signedOutput">XML Assinado</label>
+                        
+                        <div id="outputContainer">
+                            <div class="placeholder-box">
+                                O XML assinado e as opções de cópia aparecerão aqui após clicar em Assinar XML.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
