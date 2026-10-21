@@ -26,6 +26,7 @@ export class XmlSigner {
         InfSubstituicaoNfse: 'self',
         ConsultarNfseRpsEnvio: 'self',
         infDPS: 'parent',
+        infPedReg: 'parent',
         InfDeclaracaoPrestacaoServico: 'parent',
         LoteRps: 'parent',
         EnviarLoteRpsEnvio: 'parent',
